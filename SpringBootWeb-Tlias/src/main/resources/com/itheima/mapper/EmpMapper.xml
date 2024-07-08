@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.EmpMapper">
+
+    <delete id="deleteEmpByIds">
+        delete
+        from emp
+        where id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--查询员工表的总数-->
+    <select id="countEmp" resultType="java.lang.Long">
+        select count(*)
+        from emp
+    </select>
+
+    <!--通过分页插件实现条件查询-->
+    <select id="listCondition" resultType="com.itheima.pojo.Emp">
+        select *
+        from emp
+    </select>
+
+
+</mapper>

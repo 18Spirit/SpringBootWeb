@@ -1,0 +1,22 @@
+# Tomcat端口
+server:
+  port: 8080
+
+spring:
+  application:
+    name: MyBatis
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis
+    username: root
+    password: 123456
+    # 数据库连接池切换为Druid
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+mybatis:
+  configuration:
+    # 启动mybatis日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 启动驼峰命名
+    map-underscore-to-camel-case: true
